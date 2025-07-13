@@ -75,7 +75,7 @@ impl<'info> Deposit<'info> {
         let (x, y) = match self.mint_lp.supply == 0
             && self.vault_x.amount == 0
             && self.vault_y.amount == 0
-        {
+        { // if we in the initial stage, then we can set max_x and max_y as x and y
             true => (max_x, max_y),
             false => {
                 let amount = ConstantProduct::xy_deposit_amounts_from_l(
