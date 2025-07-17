@@ -9,3 +9,6 @@ pub use swap::*;
 
 pub mod withdraw;
 pub use withdraw::*;
+
+pub mod update;
+pub use update::*;
