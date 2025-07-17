@@ -5,6 +5,8 @@ use constant_product_curve::ConstantProduct;
 use crate::{state::Config};
 use crate::{error::AmmError};
 
+// this is helpful for liquidity providers in order to deposit their tokens
+
 /*
     accounts in the context struct:
     - user

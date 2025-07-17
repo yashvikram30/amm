@@ -30,7 +30,7 @@ pub mod amm {
         ctx.accounts.deposit(amount, max_x, max_y)
     }
 
-    pub fn swap(ctx: Context<Swap>, x_to_y: bool, amount_in: u64, slippage: u16) -> Result<()> {
-        ctx.accounts.swap(x_to_y, amount_in, slippage)
-    }
+    // pub fn swap(ctx: Context<Swap>, x_to_y: bool, amount_in: u64, slippage: u16) -> Result<()> {
+    //     ctx.accounts.swap(x_to_y, amount_in, slippage)
+    // }
 }

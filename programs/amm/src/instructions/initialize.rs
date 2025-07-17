@@ -2,6 +2,7 @@ use anchor_lang::{prelude::*, solana_program::address_lookup_table::state::Progr
 use anchor_spl::{associated_token::AssociatedToken, token::{Mint, Token, TokenAccount}};
 use crate::state::Config;
 
+// this instruction is for the initializer (whoever starts the amm pool and sets the rule)
 /*
     Account context data structure:
     - initializer

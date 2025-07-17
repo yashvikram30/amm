@@ -1,6 +1,7 @@
 use anchor_lang::error_code;
 use constant_product_curve::CurveError;
 
+
 #[error_code]
 pub enum AmmError {
     #[msg("DefaultError")]
@@ -9,6 +10,8 @@ pub enum AmmError {
     OfferExpired,
     #[msg("This pool is locked.")]
     PoolLocked,
+    #[msg("This pool is unlocked.")]
+    PoolUnlocked,
     #[msg("Slippage exceeded.")]
     SlippageExceeded,
     #[msg("Overflow detected.")]
@@ -39,6 +42,8 @@ pub enum AmmError {
     InsufficientBalance,
     #[msg("Zero balance.")]
     ZeroBalance,
+    #[msg("Swap error.")]
+    SwapError
 }
 
 impl From<CurveError> for AmmError {
