@@ -82,6 +82,11 @@ pub struct Withdraw<'info> {
     pub associated_token_program: Program<'info, AssociatedToken>,
 }
 
+/*
+    - the user withdraws the tokens from the vault
+    - we will burn the lp tokens in the user_lp vault, so he cannot again and again claim them
+*/
+
 impl<'info> Withdraw<'info> {
     pub fn withdraw(&mut self, amount: u64, min_x: u64, min_y: u64) -> Result<()> {
         require!(self.config.locked == false, AmmError::PoolLocked);
@@ -105,6 +110,7 @@ impl<'info> Withdraw<'info> {
         Ok(())
     }
 
+    // transfer tokens from the vault ata to the user ata
     pub fn withdraw_token(&mut self, is_x: bool, amount: u64) -> Result<()> {
 
         let (from, to) = match is_x {
@@ -129,6 +135,7 @@ impl<'info> Withdraw<'info> {
         transfer(ctx, amount)
     }
 
+    // we will burn user_lp tokens
     pub fn burn(&mut self, amount: u64) -> Result<()> {
         let cpi_program = self.token_program.to_account_info();
 
